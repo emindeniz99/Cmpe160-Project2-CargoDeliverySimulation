@@ -10,14 +10,27 @@ import Util.Cargo;
 public class Carriage{
 	
 	
-	int capacity;
-	int emptySlot;
-	public Stack<Cargo> cargos;
+	private int capacity;
+	private int emptySlot;
+	private Stack<Cargo> cargos;
 	
-	public Carriage next;
-	public  Carriage prev;
+	public Stack<Cargo> getCargos() {
+		return cargos;
+	}
+
+	private Carriage next;
+	public Carriage getNext() {
+		return next;
+	}
+
+	private  Carriage prev;
 	
 	
+	public Carriage getPrev() {
+		return prev;
+	}
+
+
 	public Carriage(int capacity){
 		this.emptySlot = this.capacity = capacity;
 		
@@ -29,7 +42,7 @@ public class Carriage{
 	}
 	
 	
-	// hepsi dolduysa sondakine gelince çaðýr bunu
+	// add New Carriage at the end of the train
 	public Carriage addNew() {
 		
 		this.next=new Carriage(this.capacity);
@@ -64,18 +77,18 @@ public class Carriage{
 //	}
 	
 	
-	public boolean isFull() {
+	 boolean isFull() {
 		return emptySlot==0;
 	}
 	
 	
-	public void push(Cargo cargo) {
+	 void push(Cargo cargo) {
 		cargos.push(cargo);
 		this.emptySlot-=cargo.getSize();
 		
 	}
 	
-	public Cargo pop() {
+	 Cargo pop() {
 
 		Cargo temp=cargos.pop();
 		this.emptySlot+=temp.getSize();
@@ -83,7 +96,7 @@ public class Carriage{
 		
 	}
 	
-	public boolean fill(Cargo cargo) {
+	 boolean fill(Cargo cargo) {
 		if(cargo.getSize()<=this.emptySlot) {
 			this.push(cargo);
 			return true;

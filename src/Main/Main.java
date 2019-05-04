@@ -60,9 +60,9 @@ public class Main{
 		
 		
 		//moved to Train
-//		File output = new File("output.txt");
+		File output = new File("output.txt");
 //		
-//		PrintStream  writer=new PrintStream(output);
+		PrintStream  writer=new PrintStream(output);
 		
 		
 		
@@ -75,7 +75,7 @@ public class Main{
 		Station[] stations=new Station[stationNumber];
 
 		for(int i=0;i<stationNumber;i++) {
-			stations[i]=new Station(i);
+			stations[i]=new Station(i,writer);
 			
 		}
 		

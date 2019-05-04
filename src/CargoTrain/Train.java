@@ -9,21 +9,38 @@ import Util.Cargo;
 
 public class Train{
 	
-	 int carCapacity;
-	 int length;
+	private int carCapacity;
+	private int length;
 	 
 	 
 //	int emptySlot;
 //	Stack<Cargo> cargos;
 	
-	public Carriage head;
-	public Carriage tail;
+	private  Carriage head;
+public void setHead(Carriage head) {
+		this.head = head;
+	}
+
+public Carriage getHead() {
+		return head;
+	}
+
+private 	 Carriage tail;
+
+public void setTail(Carriage tail) {
+	this.tail = tail;
+}
+
+public Carriage getTail() {
+	return tail;
+}
 	
 //	//Moved from main
 //		File output = new File("output.txt");
 //		
 //		PrintStream  writer=new PrintStream(output);
 //	
+	
 	
 	public Train(int length,int carCapacity){
 		this.carCapacity = carCapacity;
@@ -37,7 +54,7 @@ public class Train{
 		for(int i=1;i<length;i++) {
 			temp.addNew();
 			
-			temp=temp.next;
+			temp=temp.getNext();
 			// veya üsttekiler þöyle yazýlabilir temp=temp.addNew();
 			
 			tail=temp;
@@ -65,13 +82,13 @@ public class Train{
 						break;
 					}
 					else {
-						if(tempHead.next!=null) {
+						if(tempHead.getNext()!=null) {
 
-							tempHead=tempHead.next;
+							tempHead=tempHead.getNext();
 						}
 						else {
 							tempHead.addNew();
-							tempHead=tempHead.next;  // eklemeeeeeeeee yaptým
+							tempHead=tempHead.getNext();  // eklemeeeeeeeee yaptým
 							length++; //experiment
 						}
 					}
@@ -161,11 +178,11 @@ public class Train{
 	public void unload(Queue<Cargo> cargos) {  // from train to station, cargos-parameter represent cargos-queue in station
 		Carriage temp=this.head;
 		while(temp!=null) {
-			while(!temp.cargos.isEmpty()) {
-				cargos.add(temp.cargos.pop());
+			while(!temp.getCargos().isEmpty()) {
+				cargos.add(temp.getCargos().pop());
 			}
 //			System.out.println("yükleniyor");
-			temp=temp.next;
+			temp=temp.getNext();
 			
 		}
 	

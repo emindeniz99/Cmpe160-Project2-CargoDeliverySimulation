@@ -6,10 +6,10 @@ package Util;
 public class Cargo{
 	
 	
-public 	int id;
-	public Station loadingStation;
-public 	int size;
-	public  Station targetStation;
+private int id;
+	private Station loadingStation;
+private int size;
+	private  Station targetStation;
 	
 	
 	
@@ -22,21 +22,25 @@ public 	int size;
 	
 	}
 	
-	//test amaçlý
-	public Cargo(int size) {
-		this.size=size;
-		
-	}
 	
 	//getter
-	public int getSize() {
+public int getSize() {
 		return size;
+	}
+	Station getLoadingStation() {
+		return loadingStation;
+	}
+	int getId() {
+		return size;
+	}
+	Station getTargetStation() {
+		return targetStation;
 	}
 	
 	
 	@Override
 public	String toString(){
-		return ""+ this.id+" "+this.loadingStation+" "+this.targetStation+" "+this.size;
+		return ""+ this.id+" "+this.loadingStation.getId()+" "+this.targetStation.getId()+" "+this.size;
 // prints fields
 		
 	

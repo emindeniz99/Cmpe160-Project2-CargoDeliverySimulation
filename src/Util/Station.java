@@ -3,20 +3,36 @@
 
 package Util;
 
+import java.io.File;
+import java.io.PrintStream;
 import java.util.LinkedList;
 import java.util.Queue;
 
 import CargoTrain.Carriage;
 import CargoTrain.Train;
 
-public class Station{
-	public int id;
-	public Queue<Cargo> cargoQueue;
-	
-	public Station(int id) {
-		this.id=id;
-		cargoQueue=new LinkedList<>();
+public class Station  {
+	private int id;
+	public int getId() {
+		return id;
 	}
+
+	private Queue<Cargo> cargoQueue;
+	
+	public Queue<Cargo> getCargoQueue() {
+		return cargoQueue;
+	}
+
+	PrintStream writer;
+	
+	
+	public Station(int id,PrintStream writer) {
+		this.id=id;
+		this.writer=writer;
+		cargoQueue=new LinkedList<>();
+		
+	}
+	
 	
 	
 
@@ -41,18 +57,17 @@ public class Station{
 		train.unload(cargoQueue);
 		
 		
-		train.head=null;
-		train.tail=null;
+		train.setHead(null);
+		train.setTail(null);
 		
 		int size=this.cargoQueue.size();
 		
 		for(int i=0;i<size;i++) {
 				Cargo temp=this.cargoQueue.poll();
 				
-			if(temp.targetStation.id==this.id) {
+			if(temp.getTargetStation().id==this.id) {
 							
-							System.out.println(temp.id+" "+temp.loadingStation.id
-							+" "+temp.targetStation.id+" "+temp.size);
+				writer.println(temp.toString());
 								
 	//						tempqu.add(temp);
 	//						i++;
@@ -66,7 +81,7 @@ public class Station{
 		
 		
 		train.load(cargoQueue);
-		System.out.println(this.id+" "+this.getLen(train));
+		writer.println(this.id+" "+this.getLen(train));
 		/*
 //		System.out.println("size"+this.cargoQueue.size());
 		int size=this.cargoQueue.size();
@@ -113,20 +128,20 @@ public class Station{
 	public int getLen(Train train) {
 //		System.out.println(train.head);
 		
-		if(train.head==null) {
+		if(train.getHead()==null) {
 			return 0;
 			
 		}
 		
-		if(train.head.cargos.isEmpty()) {
+		if(train.getHead().getCargos().isEmpty()) {
 			return 0;
 		}
-		Carriage th=train.head;
+		Carriage th=train.getHead();
 		int len=0;
-		while(!th.cargos.isEmpty()) {
+		while(!th.getCargos().isEmpty()) {
 			len++;
-			if(th.next!=null) {
-				th=th.next;
+			if(th.getNext()!=null) {
+				th=th.getNext();
 			}else {
 				break;
 			}
