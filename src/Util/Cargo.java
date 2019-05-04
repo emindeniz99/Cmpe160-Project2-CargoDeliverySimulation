@@ -6,17 +6,20 @@ package Util;
 public class Cargo{
 	
 	
-	int id;
-	Station loadingStation;
-	int size;
-	Station targetStation;
+public 	int id;
+	public Station loadingStation;
+public 	int size;
+	public  Station targetStation;
 	
 	
 	
 	public Cargo(int id,Station loadingStation,int size,Station targetStation){
 		
 		this.id=id;
-		
+		this.loadingStation=loadingStation;
+		this.size=size;	
+		this.targetStation=targetStation;
+	
 	}
 	
 	//test amaçlý
@@ -33,7 +36,7 @@ public class Cargo{
 	
 	@Override
 public	String toString(){
-		return "";
+		return ""+ this.id+" "+this.loadingStation+" "+this.targetStation+" "+this.size;
 // prints fields
 		
 	

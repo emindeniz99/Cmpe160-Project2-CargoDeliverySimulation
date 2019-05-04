@@ -12,7 +12,7 @@ public class Carriage{
 	
 	int capacity;
 	int emptySlot;
-	Stack<Cargo> cargos;
+	public Stack<Cargo> cargos;
 	
 	Carriage next;
 	Carriage prev;
@@ -45,23 +45,23 @@ public class Carriage{
 	// aaa aslýnda asla ortadan kesmeyiz ki, load unload yapýnca baþtan
 	//doldurmaya baþlýyor, bu sebeple hep sondan keseriz, eðer bomboþsa hepsini null yaparýz
 	
-	public void deleteCurrent() {
-		if(this.prev==null) {
-			
-			//??
-		}
-		else if(this.next==null) {
-			this.prev.next=null;
-			
-		}
-		else {
-			
-			this.prev.next=this.next;
-			this.next.prev=this.prev;
-			
-		}
-		
-	}
+//	public void deleteCurrent() {
+//		if(this.prev==null) {
+//			
+//			//??
+//		}
+//		else if(this.next==null) {
+//			this.prev.next=null;
+//			
+//		}
+//		else {
+//			
+//			this.prev.next=this.next;
+//			this.next.prev=this.prev;
+//			
+//		}
+//		
+//	}
 	
 	
 	public boolean isFull() {
@@ -76,8 +76,10 @@ public class Carriage{
 	}
 	
 	public Cargo pop() {
-		return cargos.pop();
-		
+
+		Cargo temp=cargos.pop();
+		this.emptySlot+=temp.getSize();
+		return temp;
 		
 	}
 	

@@ -12,7 +12,13 @@ import Util.*;
 public class Main{
 	
 	
-	public static void main(String arg[])  {
+
+	
+	
+	
+	
+	
+	public static void main(String arg[]) throws FileNotFoundException  {
 		
 		
 		
@@ -42,7 +48,7 @@ public class Main{
 //		
 //		
 //	System.out.println();
-		
+		readAndInitialize();
 	
 	}
 	
@@ -52,9 +58,11 @@ public class Main{
 		
 		Scanner scanner=new Scanner(input);
 		
-		File output = new File("output.txt");
 		
-		PrintStream  writer=new PrintStream(output);
+		//moved to Train
+//		File output = new File("output.txt");
+//		
+//		PrintStream  writer=new PrintStream(output);
 		
 		
 		
@@ -79,13 +87,38 @@ public class Main{
 			int size=scanner.nextInt();
 			stations[initialStation].addCargo(idOfCargo, stations[initialStation], size, stations[targetStation]);
 			
+//			System.out.print("  id"+ idOfCargo);
+//			System.out.print("  id"+ initialStation);
+//			System.out.print("  id"+ targetStation);
+//			System.out.print("  id"+ size);
+//			System.out.println();
+		
+			
 		}
+		
+//		for(int i=0;i<stationNumber)
+//		System.out.println(stations[2].toString());
+//		
+		
+		execute(EminTrain,stations,stationNumber);
+		
 		
 	}
 	
-static void execute() {
+static void execute(Train train,Station[] stations,int stationNumber) {
 	
-	
+	for(int i=0;i<stationNumber;i++) {
+//		stations[i].getLen();
+		//test start
+//		System.out.println(i);
+//		System.out.println("gggg" + stations[i].cargoQueue);
+		
+//		Station
+		
+		//test end
+		stations[i].process(train);		
+//		System.out.println(i);
+	}
 	
 	
 	
