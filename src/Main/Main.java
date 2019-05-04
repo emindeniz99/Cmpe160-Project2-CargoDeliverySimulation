@@ -1,8 +1,6 @@
 package Main;
 
 import java.io.*;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 import CargoTrain.*;
@@ -12,27 +10,34 @@ import Util.*;
 public class Main{
 	
 	
+	
+	public static void main(String args[]) throws FileNotFoundException  {
 
-	
-	
-	
-	
-	
-	public static void main(String arg[]) throws FileNotFoundException  {
+	String	inputFile = args[0];
+	String	outputFile=	args[1];
 		
-		readAndInitialize();
+		
+
+		
+		
+		readAndInitialize(inputFile,outputFile);
+		
+		
+		
+		
+		
+		
 	
 	}
 	
- static void readAndInitialize() throws FileNotFoundException {
+ static void readAndInitialize(String inputFile,String outputFile) throws FileNotFoundException  {
 		
-	 File input=new File("input.txt");
+	 
+	 File input=new File(inputFile);
 		
 		Scanner scanner=new Scanner(input);
 		
-		
-		//moved to Train
-		File output = new File("output.txt");
+		File output = new File(outputFile);
 //		
 		PrintStream  writer=new PrintStream(output);
 		
@@ -63,7 +68,7 @@ public class Main{
 			
 		}
 		
-
+		scanner.close();
 		
 		execute(EminTrain,stations,stationNumber);
 		
