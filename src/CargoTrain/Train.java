@@ -12,10 +12,11 @@ public class Train{
 	private int carCapacity;
 	private int length;
 	 
-	 
-//	int emptySlot;
-//	Stack<Cargo> cargos;
 	
+	public void setLength(int length) {
+		this.length = length;
+	}
+
 	private  Carriage head;
 public void setHead(Carriage head) {
 		this.head = head;
@@ -35,13 +36,6 @@ public Carriage getTail() {
 	return tail;
 }
 	
-//	//Moved from main
-//		File output = new File("output.txt");
-//		
-//		PrintStream  writer=new PrintStream(output);
-//	
-	
-	
 	public Train(int length,int carCapacity){
 		this.carCapacity = carCapacity;
 		this.length=length;
@@ -55,7 +49,7 @@ public Carriage getTail() {
 			temp.addNew();
 			
 			temp=temp.getNext();
-			// veya üsttekiler þöyle yazýlabilir temp=temp.addNew();
+	
 			
 			tail=temp;
 		}
@@ -72,13 +66,13 @@ public Carriage getTail() {
 			
 			
 			
-			Carriage tempHead=head; // head boþsa ????   ------ !!!!
+			Carriage tempHead=head;
 			
 			Cargo transCargo = cargos.remove();
 			while(true) {
-//				if(tempHead!=null) {
+		
 					if(tempHead.fill(transCargo)) {
-//						tempTail=tempHead;  // experi
+					
 						break;
 					}
 					else {
@@ -88,89 +82,16 @@ public Carriage getTail() {
 						}
 						else {
 							tempHead.addNew();
-							tempHead=tempHead.getNext();  // eklemeeeeeeeee yaptým
-							length++; //experiment
+							tempHead=tempHead.getNext();  
+							length++;
 						}
 					}
-//				}
-//				else {
-//					
-//				}
-			}
-			
-		}
-		
-		
-//		Carriage tempHead=head;
-//		Carriage tempTail=tail; // kalaný kesip atmak için , ÇAlýþmýyor :(
-		
-	/*	while(!cargos.isEmpty()) {
-			Carriage tempHead=head; // head boþsa ????   ------ !!!!
-			
-			Cargo transCargo = cargos.remove();
-			while(true) {
-//				if(tempHead!=null) {
-					if(tempHead.fill(transCargo)) {
-//						tempTail=tempHead;  // experi
-						break;
-					}
-					else {
-						if(tempHead.next!=null) {
 
-							tempHead=tempHead.next;
-						}
-						else {
-							tempHead.addNew();
-							tempHead=tempHead.next;  // eklemeeeeeeeee yaptým
-							length++; //experiment
-						}
-					}
-//				}
-//				else {
-//					
-//				}
 			}
 			
 		}
-//		this.tail=tempTail;
-//		this.tail.next=null;
 		
-		int len=0;
-		Carriage tempHead=head;
-		Carriage tempTail=head;
-		
-		*/
-		/**
-		while(tempHead!=null) {
-			if(!tempHead.cargos.isEmpty()) {
-				len++;
-				tempTail=tempHead;
-			
-				tempHead=tempHead.next;
-//				System.out.println("dd");
-			}
-				else {
-				
-				
-				
-				break;
-			}
-			
-			
-		}
-		if ( head!=null) { 
-			if(head.cargos.isEmpty()) {
-			tempTail=null;
-//			this.head=null;
-			
-			
-		}
-		}
-		
-		this.length=len;
-		this.tail=tempTail;
-		if(this.tail!=null ) this.tail.next=null;  // bunu ekledim 16:56
-		**/
+	
 	}
 	
 	
@@ -181,7 +102,6 @@ public Carriage getTail() {
 			while(!temp.getCargos().isEmpty()) {
 				cargos.add(temp.getCargos().pop());
 			}
-//			System.out.println("yükleniyor");
 			temp=temp.getNext();
 			
 		}

@@ -20,34 +20,6 @@ public class Main{
 	
 	public static void main(String arg[]) throws FileNotFoundException  {
 		
-		
-		
-		
-		
-		
-		
-//		EminTrain.toString();
-//		Station istasyon=new Station();
-//		
-//		Queue<Cargo> cargoQueue;
-//		cargoQueue=new LinkedList<>();
-//		
-//		EminTrain.load(cargoQueue);
-//		cargoQueue.add(new Cargo(10));
-//		cargoQueue.add(new Cargo(3));
-//		cargoQueue.add(new Cargo(7));
-//		cargoQueue.add(new Cargo(9));
-//		cargoQueue.add(new Cargo(1));
-//		cargoQueue.add(new Cargo(1));
-//		cargoQueue.add(new Cargo(1));
-//		cargoQueue.add(new Cargo(1));
-//		cargoQueue.add(new Cargo(1));
-//		
-//		
-//		EminTrain.load(cargoQueue);
-//		
-//		
-//	System.out.println();
 		readAndInitialize();
 	
 	}
@@ -87,18 +59,11 @@ public class Main{
 			int size=scanner.nextInt();
 			stations[initialStation].addCargo(idOfCargo, stations[initialStation], size, stations[targetStation]);
 			
-//			System.out.print("  id"+ idOfCargo);
-//			System.out.print("  id"+ initialStation);
-//			System.out.print("  id"+ targetStation);
-//			System.out.print("  id"+ size);
-//			System.out.println();
-		
+
 			
 		}
 		
-//		for(int i=0;i<stationNumber)
-//		System.out.println(stations[2].toString());
-//		
+
 		
 		execute(EminTrain,stations,stationNumber);
 		
@@ -108,16 +73,9 @@ public class Main{
 static void execute(Train train,Station[] stations,int stationNumber) {
 	
 	for(int i=0;i<stationNumber;i++) {
-//		stations[i].getLen();
-		//test start
-//		System.out.println(i);
-//		System.out.println("gggg" + stations[i].cargoQueue);
-		
-//		Station
-		
-		//test end
+
 		stations[i].process(train);		
-//		System.out.println(i);
+
 	}
 	
 	

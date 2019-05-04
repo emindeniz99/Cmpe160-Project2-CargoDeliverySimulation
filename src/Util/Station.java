@@ -13,6 +13,7 @@ import CargoTrain.Train;
 
 public class Station  {
 	private int id;
+	
 	public int getId() {
 		return id;
 	}
@@ -37,12 +38,6 @@ public class Station  {
 	
 
 	
-	//Printstream
-	
-//	cargoQueue= ;
-//	
-	
-	
 	//initial cargos waiting at the station
 	public void addCargo(int id,Station loadingStation,int size,Station targetStation) {
 		cargoQueue.add(new Cargo(id,loadingStation,size,targetStation));
@@ -51,8 +46,8 @@ public class Station  {
 		
 	}
 	
-	public void process(Train train) { /// iþlemleri burada yap ve file a da burada yazdýr
-//		cargoQueue=new LinkedList<>();
+	public void process(Train train) { 
+
 		
 		train.unload(cargoQueue);
 		
@@ -68,9 +63,7 @@ public class Station  {
 			if(temp.getTargetStation().id==this.id) {
 							
 				writer.println(temp.toString());
-								
-	//						tempqu.add(temp);
-	//						i++;
+		
 							
 						}
 						else {
@@ -83,67 +76,18 @@ public class Station  {
 		train.load(cargoQueue);
 		
 		
-		tailFixer(train);
 		
 		writer.println(this.id+" "+this.getLenandFixTail(train));
-		/*
-//		System.out.println("size"+this.cargoQueue.size());
-		int size=this.cargoQueue.size();
 		
-		Queue<Cargo> tempqu=new LinkedList(); ;// kenarda dursun durakta bekleyecek
-		
-		for(int i=0;i<size;i++) {
-			Cargo temp=cargoQueue.poll();
-//			cargoQueue.add(temp);
-//			System.out.println("1");
-//			System.out.println(cargoQueue.toString());
-//			System.out.println(temp.targetStation);
-			if(temp.targetStation.id==this.id) {
-				
-				System.out.println(temp.id+" "+temp.loadingStation.id
-				+" "+temp.targetStation.id+" "+temp.size);
-					
-				tempqu.add(temp);
-				//i++;
-				
-			}
-			else {
-				cargoQueue.add(temp);
-			}
-//			cargoQueue.add(temp);
-//			System.out.println("bitt");
-		}
-		
-		train.load(cargoQueue);
-		
-		
-		this.cargoQueue.addAll(tempqu);
-		
-	//	System.out.println(this.id+" "+train.getLength());  // bu gerekli
-		System.out.println(this.id+" "+this.getLen(train));
-		// to access writer, you can use train.writer
-		
-		
-		//
-//		System.out.println();
-		*/
 	}
 	
-	private void tailFixer(Train train) {
-		
-		
-		
-		
-		
-	}
 
 
 
 
 
-	public int getLenandFixTail(Train train) {
-//		System.out.println(train.head);
-		
+	private int getLenandFixTail(Train train) {
+	
 		if(train.getHead()==null) {
 			return 0;
 			
@@ -169,16 +113,15 @@ public class Station  {
 			
 		}
 		
-//		System.out.println(backup);
 		train.setTail(backup);
+		
+		
+		train.setLength(len);  // fix the length 
 		return len;
 		
 	}
 	
-	public void getLen() {
-		System.out.println(this.cargoQueue.size());
-		
-	}
+	
 	
 	
 }

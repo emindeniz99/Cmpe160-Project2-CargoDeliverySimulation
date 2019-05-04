@@ -53,31 +53,10 @@ public class Carriage{
 	}
 	
 	
-	// ortadaysa çalýþýyor ama baþ ve sonra çalýþmaz muhtemelen
-	
-	// aaa aslýnda asla ortadan kesmeyiz ki, load unload yapýnca baþtan
-	//doldurmaya baþlýyor, bu sebeple hep sondan keseriz, eðer bomboþsa hepsini null yaparýz
-	
-//	public void deleteCurrent() {
-//		if(this.prev==null) {
-//			
-//			//??
-//		}
-//		else if(this.next==null) {
-//			this.prev.next=null;
-//			
-//		}
-//		else {
-//			
-//			this.prev.next=this.next;
-//			this.next.prev=this.prev;
-//			
-//		}
-//		
-//	}
+
 	
 	
-	 boolean isFull() {
+	public boolean isFull() {
 		return emptySlot==0;
 	}
 	
