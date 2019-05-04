@@ -81,7 +81,11 @@ public class Station  {
 		
 		
 		train.load(cargoQueue);
-		writer.println(this.id+" "+this.getLen(train));
+		
+		
+		tailFixer(train);
+		
+		writer.println(this.id+" "+this.getLenandFixTail(train));
 		/*
 //		System.out.println("size"+this.cargoQueue.size());
 		int size=this.cargoQueue.size();
@@ -125,7 +129,19 @@ public class Station  {
 		*/
 	}
 	
-	public int getLen(Train train) {
+	private void tailFixer(Train train) {
+		
+		
+		
+		
+		
+	}
+
+
+
+
+
+	public int getLenandFixTail(Train train) {
 //		System.out.println(train.head);
 		
 		if(train.getHead()==null) {
@@ -138,16 +154,25 @@ public class Station  {
 		}
 		Carriage th=train.getHead();
 		int len=0;
+		
+		Carriage backup=th;
 		while(!th.getCargos().isEmpty()) {
 			len++;
+			backup=th;
 			if(th.getNext()!=null) {
+				
 				th=th.getNext();
+				
 			}else {
 				break;
 			}
 			
 		}
+		
+//		System.out.println(backup);
+		train.setTail(backup);
 		return len;
+		
 	}
 	
 	public void getLen() {
