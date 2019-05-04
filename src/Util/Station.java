@@ -56,7 +56,7 @@ public class Station{
 				+" "+temp.targetStation.id+" "+temp.size);
 					
 				tempqu.add(temp);
-				i++;
+				//i++;
 				
 			}
 			else {

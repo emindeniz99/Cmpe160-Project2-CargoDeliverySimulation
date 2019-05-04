@@ -16,8 +16,8 @@ public class Train{
 //	int emptySlot;
 //	Stack<Cargo> cargos;
 	
-	Carriage head;
-	Carriage tail;
+	public Carriage head;
+	public Carriage tail;
 	
 //	//Moved from main
 //		File output = new File("output.txt");
