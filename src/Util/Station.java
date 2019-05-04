@@ -6,6 +6,7 @@ package Util;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import CargoTrain.Carriage;
 import CargoTrain.Train;
 
 public class Station{
@@ -39,6 +40,34 @@ public class Station{
 		
 		train.unload(cargoQueue);
 		
+		
+		train.head=null;
+		train.tail=null;
+		
+		int size=this.cargoQueue.size();
+		
+		for(int i=0;i<size;i++) {
+				Cargo temp=this.cargoQueue.poll();
+				
+			if(temp.targetStation.id==this.id) {
+							
+							System.out.println(temp.id+" "+temp.loadingStation.id
+							+" "+temp.targetStation.id+" "+temp.size);
+								
+	//						tempqu.add(temp);
+	//						i++;
+							
+						}
+						else {
+							cargoQueue.add(temp);
+						}
+				
+		}
+		
+		
+		train.load(cargoQueue);
+		System.out.println(this.id+" "+this.getLen(train));
+		/*
 //		System.out.println("size"+this.cargoQueue.size());
 		int size=this.cargoQueue.size();
 		
@@ -71,14 +100,39 @@ public class Station{
 		
 		this.cargoQueue.addAll(tempqu);
 		
-		System.out.println(this.id+" "+train.getLength());  // bu gerekli
-		
+	//	System.out.println(this.id+" "+train.getLength());  // bu gerekli
+		System.out.println(this.id+" "+this.getLen(train));
 		// to access writer, you can use train.writer
 		
 		
 		//
 //		System.out.println();
+		*/
+	}
+	
+	public int getLen(Train train) {
+//		System.out.println(train.head);
 		
+		if(train.head==null) {
+			return 0;
+			
+		}
+		
+		if(train.head.cargos.isEmpty()) {
+			return 0;
+		}
+		Carriage th=train.head;
+		int len=0;
+		while(!th.cargos.isEmpty()) {
+			len++;
+			if(th.next!=null) {
+				th=th.next;
+			}else {
+				break;
+			}
+			
+		}
+		return len;
 	}
 	
 	public void getLen() {

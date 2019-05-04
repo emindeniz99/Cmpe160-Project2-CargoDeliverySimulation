@@ -47,10 +47,47 @@ public class Train{
 		
 	}
 	public void load(Queue<Cargo> cargos) {
+		this.length=0;
+		this.head=new Carriage(carCapacity);
+		
+		while(!cargos.isEmpty()) {
+			
+			
+			
+			
+			Carriage tempHead=head; // head boþsa ????   ------ !!!!
+			
+			Cargo transCargo = cargos.remove();
+			while(true) {
+//				if(tempHead!=null) {
+					if(tempHead.fill(transCargo)) {
+//						tempTail=tempHead;  // experi
+						break;
+					}
+					else {
+						if(tempHead.next!=null) {
+
+							tempHead=tempHead.next;
+						}
+						else {
+							tempHead.addNew();
+							tempHead=tempHead.next;  // eklemeeeeeeeee yaptým
+							length++; //experiment
+						}
+					}
+//				}
+//				else {
+//					
+//				}
+			}
+			
+		}
+		
+		
 //		Carriage tempHead=head;
 //		Carriage tempTail=tail; // kalaný kesip atmak için , ÇAlýþmýyor :(
 		
-		while(!cargos.isEmpty()) {
+	/*	while(!cargos.isEmpty()) {
 			Carriage tempHead=head; // head boþsa ????   ------ !!!!
 			
 			Cargo transCargo = cargos.remove();
@@ -85,6 +122,8 @@ public class Train{
 		Carriage tempHead=head;
 		Carriage tempTail=head;
 		
+		*/
+		/**
 		while(tempHead!=null) {
 			if(!tempHead.cargos.isEmpty()) {
 				len++;
@@ -114,7 +153,7 @@ public class Train{
 		this.length=len;
 		this.tail=tempTail;
 		if(this.tail!=null ) this.tail.next=null;  // bunu ekledim 16:56
-		
+		**/
 	}
 	
 	

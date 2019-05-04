@@ -14,8 +14,8 @@ public class Carriage{
 	int emptySlot;
 	public Stack<Cargo> cargos;
 	
-	Carriage next;
-	Carriage prev;
+	public Carriage next;
+	public  Carriage prev;
 	
 	
 	public Carriage(int capacity){
